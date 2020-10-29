@@ -57,12 +57,16 @@ $(document).ready(function(){
             console.log(punteggio);
 
             // risultati
-            $('.result').show(1200);
+            $('.result').show(2000);
 
             $('.result .indovinati').text(indovinati);
             $('.result .punteggio').text(punteggio);
 
             // replay
+            $('.result .btn').click(function(){
+                window.location.reload(); // <--- refresh pagina trovato su internet
+            })
+
         }, 3000);
         
 
