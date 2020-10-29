@@ -23,7 +23,7 @@ $(document).ready(function(){
             numPC.push(numRng);
         } 
         console.log(numPC);
-        
+
         // nascondo btn
         $(this).hide();
 
@@ -36,7 +36,14 @@ $(document).ready(function(){
         setTimeout(function(){
 
             displayer.hide();
-            num = prompt('Inserisci ');
+            
+            for (i=0; i < numMax; i++){
+                var counter = numMax - i;
+                num = prompt('Inserisci un valore alla volta \n' + 'Ancora' + counter);
+            } 
+            console.log(numPlayer);
+            
+            
 
         }, 7000);
         
