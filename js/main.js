@@ -57,7 +57,7 @@ $(document).ready(function(){
             console.log(punteggio);
 
             // risultati
-            $('.result').show(2000);
+            $('.result').show();
 
             $('.result .indovinati').text(indovinati);
             $('.result .punteggio').text(punteggio);
@@ -65,15 +65,10 @@ $(document).ready(function(){
             // replay
             $('.result .btn').click(function(){
                 window.location.reload(); // <--- refresh pagina trovato su internet
-            })
+            });
 
         }, 3000);
         
-
-
-
     });
-
-
 
 }); //<---fine ready
