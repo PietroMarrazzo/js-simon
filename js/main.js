@@ -10,8 +10,9 @@ $(document).ready(function(){
     var numRng = 0;
     var num = 0;
     var numbers = $('.flex-wrap .numbers');
-    var displayer = $('.flex-wrap .displayer')
-
+    var displayer = $('.flex-wrap .displayer');
+    var punteggio = 0;
+    var indovinati = [];
 
     // console.log(numPC, numPlayer);
     
@@ -19,7 +20,10 @@ $(document).ready(function(){
     start.click(function(){
         for (i = 0; i < numMax; i++) {
 
-            numRng = Math.floor((Math.random() * difficult) + 1);
+            do {
+                numRng = Math.floor((Math.random() * difficult) + 1)
+            } while (numPC.includes(numRng));
+            // numRng = Math.floor((Math.random() * difficult) + 1);
             numPC.push(numRng);
         } 
         console.log(numPC);
@@ -37,15 +41,29 @@ $(document).ready(function(){
 
             displayer.hide();
             
+            // chiedo i numeri al giocatore e verifico
             for (i=0; i < numMax; i++){
                 var counter = numMax - i;
-                num = prompt('Inserisci un valore alla volta \n' + 'Ancora' + counter);
-            } 
-            console.log(numPlayer);
-            
-            
+                num = parseInt(prompt('Inserisci un valore alla volta \n' + 'Ancora' + ' ' + counter).trim());
 
-        }, 7000);
+                // verifico array contenga le scelte del giocatore
+                if (numPC.includes(num)) {
+                    
+                    punteggio = punteggio + 1;
+                    indovinati.push(num);
+                }
+            } 
+            console.log(indovinati);
+            console.log(punteggio);
+
+            // risultati
+            $('.result').show(1200);
+
+            $('.result .indovinati').text(indovinati);
+            $('.result .punteggio').text(punteggio);
+
+            // replay
+        }, 3000);
         
 
 
