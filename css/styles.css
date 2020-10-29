@@ -20,6 +20,10 @@ h1 {
     align-items: center;
 }
 
+.hidden {
+    display: none;
+}
+
 .btn {
     display: block;
 }

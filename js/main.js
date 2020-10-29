@@ -10,6 +10,7 @@ $(document).ready(function(){
     var numRng = 0;
     var num = 0;
     var numbers = $('.flex-wrap .numbers');
+    var displayer = $('.flex-wrap .displayer')
 
 
     // console.log(numPC, numPlayer);
@@ -22,16 +23,19 @@ $(document).ready(function(){
             numPC.push(numRng);
         } 
         console.log(numPC);
+        
+        // nascondo btn
+        $(this).hide();
 
-
-
-        alert('Guarda e ricorda! \n' + numPC);
+        // mostro i numeri
+        displayer.show();
+        numbers.text(numPC);
         
 
-        // espongo i numeri con un alert per 30 secondi - 7 di per prova
+        // dopo 30 secondi - 7 di per prova - nascondo i numeri e inserisco valori
         setTimeout(function(){
 
-            
+            displayer.hide();
             num = prompt('Inserisci ');
 
         }, 7000);
